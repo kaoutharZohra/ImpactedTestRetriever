@@ -241,24 +241,24 @@ public class ImpactAnalyzer {
 
 
 
-//		String [] tab = {"/home/zkebaili/eclipse-workspace/ImpactedTestsRetrieverV3/Model/PivotV6.7.0.ecore", "/home/zkebaili/eclipse-workspace/ImpactedTestsRetrieverV3/Model/PivotV6.18.0.ecore"};
-//		//"C:/Users/dkhellad/Documents/eclipses/eclipse-epsilon-1.4-win32-x86_64/workspace2/MCCoEvolutator/models/ocl/3.2.2/Pivot.ecore", "C:/Users/dkhellad/Documents/eclipses/eclipse-epsilon-1.4-win32-x86_64/workspace2/MCCoEvolutator/models/ocl/3.4.4/Pivot.ecore");
-//
-//		String source = tab[0];
-//		String target = tab[1];
-//
-//		InitialState initState = new InitialState(source); //initialize the source metamodel that we use for precise cc detection
-//		initState.initialize(true);//ecore
-//
-//		InitialState initStateTarget = new InitialState(target); //initialize the target metamodel that we use for precise cc detection
-//		initStateTarget.initialize(true);//ecore
-//
-//		ComputeDelta cDelta = new ComputeDelta();
-//		Comparison comparison = cDelta.compare(source, target);
-//
-//
-//		ArrayList<AtomicChange> achanges = cDelta.importeEMFCompareChanges(comparison, initState, initStateTarget);
-//		System.out.println("transfered diff delta size: " + achanges.size());
+		//		String [] tab = {"/home/zkebaili/eclipse-workspace/ImpactedTestsRetrieverV3/Model/PivotV6.7.0.ecore", "/home/zkebaili/eclipse-workspace/ImpactedTestsRetrieverV3/Model/PivotV6.18.0.ecore"};
+		//		//"C:/Users/dkhellad/Documents/eclipses/eclipse-epsilon-1.4-win32-x86_64/workspace2/MCCoEvolutator/models/ocl/3.2.2/Pivot.ecore", "C:/Users/dkhellad/Documents/eclipses/eclipse-epsilon-1.4-win32-x86_64/workspace2/MCCoEvolutator/models/ocl/3.4.4/Pivot.ecore");
+		//
+		//		String source = tab[0];
+		//		String target = tab[1];
+		//
+		//		InitialState initState = new InitialState(source); //initialize the source metamodel that we use for precise cc detection
+		//		initState.initialize(true);//ecore
+		//
+		//		InitialState initStateTarget = new InitialState(target); //initialize the target metamodel that we use for precise cc detection
+		//		initStateTarget.initialize(true);//ecore
+		//
+		//		ComputeDelta cDelta = new ComputeDelta();
+		//		Comparison comparison = cDelta.compare(source, target);
+		//
+		//
+		//		ArrayList<AtomicChange> achanges = cDelta.importeEMFCompareChanges(comparison, initState, initStateTarget);
+		//		System.out.println("transfered diff delta size: " + achanges.size());
 
 
 		/**            end    changes with trace coder **/
@@ -324,10 +324,10 @@ public class ImpactAnalyzer {
 
 		}
 		System.out.println(" Total number of tests is "+ nbTests);
-		System.out.println("BEGIN ///////////////////////////////////////////////////////////////");
+		/*System.out.println("BEGIN ///////////////////////////////////////////////////////////////");
 		JavaParser.printManageBindings();
 		System.out.println(" END ///////////////////////////////////////////////////////////////");
-
+		 */
 		// JavaParser.printManageBindings();
 		ArrayList<Change>  achanges = ChangeDetection.initializeChangements();
 		ArrayList<Change>  changes= new ArrayList<Change>();
@@ -693,7 +693,7 @@ public class ImpactAnalyzer {
 				//if(linkBindingChange(formatBinding(key), change))
 				if(linkBindingInverseChange(formatBinding(key), change))		
 				{
-					
+
 					//System.out.println(" BEGIN USAGES **********************************");
 					//	printNodesByBinding(mapKeyNodes(key.getKey()));
 					//System.out.println(" END USAGES **********************************");
@@ -906,7 +906,7 @@ public class ImpactAnalyzer {
 					//.out.println(" Project path is "+path);
 					//	System.out.println(" CU  path is "+cu.getJavaElement().getPath());
 					//	System.out.println(" The result of spliting "+((cu.getJavaElement().getPath().toString()).split("\\.java"))[0]);
-						//newPath= "/home/zkebaili/runtime-EclipseApplication"+((cu.getJavaElement().getPath().toString()).split("\\.java"))[0]+"_impacted.java"; // to check
+					//newPath= "/home/zkebaili/runtime-EclipseApplication"+((cu.getJavaElement().getPath().toString()).split("\\.java"))[0]+"_impacted.java"; // to check
 					newPath= "/home/zkebaili/runtime-New_configuration(6)"+((cu.getJavaElement().getPath().toString()).split("\\.java"))[0]+"_impacted.java"; // to check
 
 
@@ -1191,7 +1191,7 @@ public class ImpactAnalyzer {
 										|| (bindingInfo.get(0).equals(classname+"Impl")& bindingInfo.get(1).equals("get"+capitalizeFirstLetter(propertyname))) 
 										||( bindingInfo.get(0).equals(classname+"Impl")& bindingInfo.get(1).equals("set"+capitalizeFirstLetter(propertyname))) 
 										||(bindingInfo.get(0).equals(classname+"Impl")& bindingInfo.get(1).equals("is"+capitalizeFirstLetter(propertyname)))
-										
+
 										)
 								{
 									match=true;
@@ -1702,7 +1702,7 @@ public class ImpactAnalyzer {
 						MoveProperty mp =(MoveProperty)inversechange;
 						String propertyname= mp.getName();
 						String classname=mp.getTargetClassName();
-						
+
 						if(bindingInfo.size()>1)
 						{
 							if(bindingInfo.get(0) !=null && bindingInfo.get(1) !=null )
@@ -1728,7 +1728,7 @@ public class ImpactAnalyzer {
 							if(bindingInfo.get(0) !=null && bindingInfo.get(2) !=null )
 							{
 								System.out.println(" in move property  2 "+ bindingInfo.get(0)+ "  And "+bindingInfo.get(2));
-								
+
 								System.out.println(" in move property literal case ");
 								if(containOnlyCapitals(bindingInfo.get(2))) {
 									String literal =makeLiteral(classname)+"__"+makeLiteral(propertyname);
@@ -1793,23 +1793,23 @@ public class ImpactAnalyzer {
 								if(bindingInfo.size()>2)
 								{
 
-								if(containOnlyCapitals(bindingInfo.get(2))) {
-									if(bindingInfo.size()>2) {
-										if(bindingInfo.get(0) !=null && bindingInfo.get(2) !=null )
-										{
-											System.out.println(" in pull property literal case ");
-											if(containOnlyCapitals(bindingInfo.get(2))) {
-												String literal =makeLiteral(s)+"__"+makeLiteral(propertyname);
-												if((bindingInfo.get(0).contains("$Literals")& bindingInfo.get(2).contains(literal))
-														//	||(bindingInfo.get(0).contains("$Literals")& bindingInfo.get(2).equals(literal))
-														)
-												{
-													match=true;
+									if(containOnlyCapitals(bindingInfo.get(2))) {
+										if(bindingInfo.size()>2) {
+											if(bindingInfo.get(0) !=null && bindingInfo.get(2) !=null )
+											{
+												System.out.println(" in pull property literal case ");
+												if(containOnlyCapitals(bindingInfo.get(2))) {
+													String literal =makeLiteral(s)+"__"+makeLiteral(propertyname);
+													if((bindingInfo.get(0).contains("$Literals")& bindingInfo.get(2).contains(literal))
+															//	||(bindingInfo.get(0).contains("$Literals")& bindingInfo.get(2).equals(literal))
+															)
+													{
+														match=true;
+													}
 												}
 											}
 										}
 									}
-								}
 								}
 							}
 						}
