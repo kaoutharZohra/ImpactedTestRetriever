@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="test" nsURI="http://test/1.0" nsPrefix="test">
+  <eClassifiers xsi:type="ecore:EClass" name="A" eSuperTypes="#//B">
+    <eOperations name="getAB"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="a"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="b"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="B" eSuperTypes="#//C #//G">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="btof" eType="#//F"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="C" eSuperTypes="#//D">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ctoh" eType="#//H"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="D"/>
+  <eClassifiers xsi:type="ecore:EClass" name="E">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="etoi" eType="#//I"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="F">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="etoe" eType="#//E"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="G"/>
+  <eClassifiers xsi:type="ecore:EClass" name="H"/>
+  <eClassifiers xsi:type="ecore:EClass" name="I">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="itoe" eType="#//E"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="itob" eType="#//B"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="A1" eSuperTypes="#//A"/>
+  <eClassifiers xsi:type="ecore:EClass" name="A2" eSuperTypes="#//A"/>
+  <eClassifiers xsi:type="ecore:EClass" name="A3" eSuperTypes="#//A"/>
+  <eClassifiers xsi:type="ecore:EClass" name="C1" eSuperTypes="#//C">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="c"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="C2" eSuperTypes="#//C">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="c"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Inlined">
+    <eOperations name="getTest" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+      <eParameters name="i" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="test"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="W">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="wtox" eType="#//X"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="wtoy" eType="#//Y"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="x"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="X"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Y"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Z">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ztox" eType="#//X"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ztoy" eType="#//Y"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="x"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Sale">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expedition" upperBound="-1"
+        eType="#//Shipment" eOpposite="#//Shipment/sales"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ammount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="paymentDate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Shipment">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sales" lowerBound="1" upperBound="-1"
+        eType="#//Sale" eOpposite="#//Sale/expedition"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="address" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bills" lowerBound="1" eType="#//Bill"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Bill">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="plannedShipDate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Composite" eSuperTypes="#//Component">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="r" upperBound="-1" eType="#//Component"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="desc" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="depth" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Component">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="component" upperBound="-1"
+        eType="#//Component"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="limit" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="A">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="r" eType="#//B.1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="B">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="p"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Leaf" eSuperTypes="#//Component"/>
+  <eClassifiers xsi:type="ecore:EClass" name="A" eSuperTypes="#//SuperA">
+    <eOperations name="p2"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="p1"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="p3" lowerBound="1" eType="#//E.1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="B">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="r4" eType="#//A.2"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="r3" upperBound="-1" eType="#//A.2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="C">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="r6" eType="#//A1.1"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="r5" upperBound="-1" eType="#//A1.1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="D">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="r2" eType="#//SuperA"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="r1" upperBound="-1" eType="#//SuperA"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="A1" eSuperTypes="#//A.2"/>
+  <eClassifiers xsi:type="ecore:EClass" name="E"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SuperA"/>
+</ecore:EPackage>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="test3" nsURI="http://test3/1.0" nsPrefix="test3">
+  <eClassifiers xsi:type="ecore:EClass" name="Ship" eSuperTypes="#//NewClass #//Shipment">
+    <eOperations name="opAdd"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="salesStock" upperBound="-1"
+        eType="#//SaleStock"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="shipments" upperBound="-1"
+        eType="#//Shipment"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Shipment" eSuperTypes="#//AddedClass">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isShipment" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SaleStock">
+    <eOperations name="getBillStock"/>
+    <eOperations name="calcul">
+      <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList">
+        <eTypeArguments/>
+      </eGenericType>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="amountSale" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="country" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NewClass">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="identificateur" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="shpments" eType="#//Shipment"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AddedClass" eSuperTypes="#//NewClass">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="movedAtt" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SuperClass">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pull" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SubClass" eSuperTypes="#//SuperClass">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pushRef" eType="#//Ship"/>
+  </eClassifiers>
+</ecore:EPackage>

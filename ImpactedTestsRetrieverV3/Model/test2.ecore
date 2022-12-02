@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="test2" nsURI="http://test2/1.0" nsPrefix="test2">
+  <eClassifiers xsi:type="ecore:EClass" name="Ship" eSuperTypes="#//Totoro">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sales" upperBound="-1"
+        eType="#//Sale"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="shipments" upperBound="-1"
+        eType="#//Shipment"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isShipment" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="movedAtt" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="delRef" eType="#//Totoro"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Totoro" eSuperTypes="#//OldClass">
+    <eOperations name="opDel"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ghibli" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Shipment"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Sale">
+    <eOperations name="getBill"/>
+    <eOperations name="calcul" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="amount" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        defaultValueLiteral=""/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OldClass"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SubClass" eSuperTypes="#//SuperClass">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pull" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SuperClass">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pushRef" eType="#//Ship"/>
+  </eClassifiers>
+</ecore:EPackage>

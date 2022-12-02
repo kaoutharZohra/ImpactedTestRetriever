@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            name="Sample Category"
+            id="testppup3">
+      </category>
+      <view
+            id="testppup3.views.SampleViewIA"
+            name="Sample View IA"
+            icon="icons/sample.png"
+            class="testppup3.views.SampleViewIA"
+            category="testppup3"
+            inject="true">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="org.eclipse.jdt.ui.JavaPerspective">
+         <view
+               id="testppup3.views.SampleViewIA"
+               relative="org.eclipse.ui.views.ProblemView"
+               relationship="right"
+               ratio="0.5">
+         </view>
+      </perspectiveExtension>
+   </extension>
+   <extension
+         point="org.eclipse.help.contexts">
+      <contexts
+            file="contexts.xml">
+      </contexts>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="testppup3.views.SampleViewIA"
+            id="getTests"
+            name="Get list of tests">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+   
+      <menuContribution
+            locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+         
+               
+            <command
+                  commandId="getTests"
+                  icon="icons/sample.png"
+                  label="get tests 2"
+                  style="push">
+            </command>
+         
+      </menuContribution>
+   </extension>
+
+</plugin>

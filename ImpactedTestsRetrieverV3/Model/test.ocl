@@ -1,0 +1,10 @@
+import 'test.ecore'
+
+package test
+
+context Inlined::getTest(jf: Integer) : Integer
+
+body: 1
+
+
+endpackage
