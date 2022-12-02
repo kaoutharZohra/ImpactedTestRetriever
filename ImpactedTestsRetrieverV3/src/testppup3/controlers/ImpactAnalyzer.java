@@ -324,9 +324,9 @@ public class ImpactAnalyzer {
 
 		}
 		System.out.println(" Total number of tests is "+ nbTests);
-		//System.out.println("BEGIN ///////////////////////////////////////////////////////////////");
-		//JavaParser.printManageBindings();
-		//System.out.println(" END ///////////////////////////////////////////////////////////////");
+		System.out.println("BEGIN ///////////////////////////////////////////////////////////////");
+		JavaParser.printManageBindings();
+		System.out.println(" END ///////////////////////////////////////////////////////////////");
 
 		// JavaParser.printManageBindings();
 		ArrayList<Change>  achanges = ChangeDetection.initializeChangements();
